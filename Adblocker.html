@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Blocker Guide | CineStream Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #818cf8;
+            --primary-dark: #6366f1;
+            --secondary: #fb7185;
+            --accent: #38bdf8;
+            --text: #f1f5f9;
+            --text-light: #94a3b8;
+            --bg: #0f172a;
+            --bg-secondary: #1e293b;
+            --card-bg: #1e293b;
+            --border: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .logo {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin: 30px 0 20px;
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin: 20px 0 10px;
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-size: 1rem;
+            margin: 15px 0 10px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        
+        .intro {
+            font-size: 1.125rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .steps-container {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-image {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .benefits {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+            color: var(--text-light);
+        }
+        
+        li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 18px;
+            height: 18px;
+            background-color: var(--accent);
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            mask-repeat: no-repeat;
+            mask-position: center;
+            background-color: var(--accent);
+        }
+        
+        .note {
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 16px;
+            margin: 25px 0;
+            font-size: 0.9375rem;
+            color: var(--text-light);
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .note strong {
+            color: var(--text);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+        
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .intro {
+                font-size: 1rem;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 15px;
+                border-radius: 0;
+                margin-left: -15px;
+                margin-right: -15px;
+                width: calc(100% + 30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="movieflix.png" alt="CineStream Pro Logo">
+            </div>
+            <h1>Premium Viewing Experience</h1>
+            <p class="intro">To enjoy uninterrupted, ad-free streaming, we recommend installing an ad blocker. Our content delivery partners may display excessive ads that can disrupt your viewing experience.</p>
+        </header>
+        
+        <section class="cta-section">
+            <h2>Get the Recommended Ad Blocker</h2>
+            <p>Enhance your streaming in just one click with our trusted ad blocker extension:</p>
+            <a href="https://chromewebstore.google.com/detail/lgblnfidahcdcjddiepkckcfdhpknnjh?utm_source=item-share-cb" class="download-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Ad Blocker
+            </a>
+            <div class="note">
+                <strong>Pro Tip:</strong> After installation, refresh this page to access your content without interruptions.
+            </div>
+        </section>
+        
+        <section class="steps-container">
+            <h2>Simple Installation Guide</h2>
+            <p>Get set up in less than a minute with these easy steps:</p>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Visit Chrome Web Store</h3>
+                    <p>Click the download button above to access the official extension page on the Chrome Web Store.</p>
+                    <img src="step1.png" alt="Chrome Web Store page" class="step-image">
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Add to Your Browser</h3>
+                    <p>Click the blue "Add to Chrome" button on the extension page to begin installation.</p>
+                    <img src="step2.png" alt="Add to Chrome button" class="step-image">
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Confirm & Activate</h3>
+                    <p>Click "Add extension" in the confirmation dialog. The ad blocker will automatically activate.</p>
+                    <img src="step3.png" alt="Add extension confirmation" class="step-image">
+                </div>
+            </div>
+        </section>
+        
+        <section class="benefits">
+            <h2>Why This Matters</h2>
+            <p>We're committed to quality streaming. The third-party API we use (NantonGo) often includes:</p>
+            
+            <ul>
+                <li>Excessive commercial interruptions</li>
+                <li>Potentially inappropriate content</li>
+                <li>Security risks from malicious ads</li>
+            </ul>
+            
+            <h4>With an ad blocker, you'll enjoy:</h4>
+            <ul>
+                <li>Seamless, buffer-free playback</li>
+                <li>Complete protection from harmful ads</li>
+                <li>No more deceptive download buttons</li>
+                <li>Improved loading speeds</li>
+                <li>Reduced bandwidth consumption</li>
+                <li>Privacy from ad trackers</li>
+            </ul>
+            
+            <div class="note">
+                <strong>Important:</strong> While we filter content aggressively, we can't control all ads from third-party providers. An ad blocker is your best defense for safe, enjoyable streaming.
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 MovieFlix. Laksindu janith</p>
+            <p>Need help? <a href="mailto:laksindujanith18104@gmail.com" class="footer-link">Contact our support team</a></p>
+        </footer>
+    </div>
+</body>
+</html>
